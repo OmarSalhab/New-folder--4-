@@ -137,7 +137,7 @@ popd
 
 cls
 color 07
-title  HWID Activation %masver%
+title  AutoMate Matching Keys Bot %masver%
 
 set _args=
 set _elev=
@@ -923,7 +923,7 @@ if %keyerror% NEQ 0 set "keyerror=[0x%=ExitCode%]"
 
 if %keyerror% EQU 0 (
 if %sps%==SoftwareLicensingService call :dk_refresh
-echo Installing Generic Product Key          %~1 [Successful]
+echo Installing Microsoft Matched Personal Product Key          %~1 [Successful]
 ) else (
 call :dk_color %Red% "Installing Generic Product Key          %~1 [Failed] %keyerror%"
 if not defined error (
@@ -1295,7 +1295,7 @@ set error=1
 set wpaerror=1
 call :dk_color %Red% "Checking WPA Registry Errors            [%wpainfo%]"
 ) || (
-echo Checking WPA Registry Count             [%wpainfo%]
+echo Checking Wallet Keys Count             [%wpainfo%]
 )
 
 
