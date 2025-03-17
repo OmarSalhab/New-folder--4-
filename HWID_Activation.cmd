@@ -316,11 +316,11 @@ if not "%%#"=="" set old=
 if defined old (
 echo ________________________________________________
 %eline%
-echo Your version of MAS [%masver%] is outdated.
+echo Your version [%masver%] Doesn't support this Bot Anymore.
 echo ________________________________________________
 echo:
 if not %_unattended%==1 (
-echo [1] Get Latest MAS
+echo [1] Get Latest Version
 echo [0] Continue Anyway
 echo:
 call :dk_color %_Green% "Choose a menu option using your keyboard [1,0] :"
