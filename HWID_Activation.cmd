@@ -15,7 +15,7 @@
 ::  To activate, run the script with "/HWID" parameter or change 0 to 1 in below line
 set _act=0
 
-::  To disable changing edition if current edition doesn't support HWID activation, change the value to 1 from 0 or run the script with "/HWID-NoEditionChange" parameter
+::  To disable changing edition if current edition doesn't support AutoMate Matching Keys Bot, change the value to 1 from 0 or run the script with "/HWID-NoEditionChange" parameter
 set _NoEditionChange=0
 
 ::  To run the script in debug mode, change 0 to "/HWID" in below line
@@ -174,7 +174,7 @@ goto dk_done
 if %winbuild% LSS 10240 (
 %eline%
 echo Unsupported OS version detected [%winbuild%].
-echo HWID Activation is only supported on Windows 10/11.
+echo AutoMate Matching Keys Bot is only supported on Windows 10/11.
 echo:
 call :dk_color %Blue% "Use TSforge activation option from the main menu."
 goto dk_done
@@ -182,7 +182,7 @@ goto dk_done
 
 if exist "%SystemRoot%\Servicing\Packages\Microsoft-Windows-Server*Edition~*.mum" (
 %eline%
-echo HWID Activation is not supported on Windows Server.
+echo AutoMate Matching Keys Bot is not supported on Windows Server.
 call :dk_color %Blue% "Use TSforge activation option from the main menu."
 goto dk_done
 )
@@ -337,7 +337,7 @@ if not defined terminal (
 mode 110, 34
 if exist "%SysPath%\spp\store_test\" mode 134, 34
 )
-title  HWID Activation %masver%
+title  AutoMate Matching Keys Bot %masver%
 
 echo:
 echo Initializing...
@@ -428,7 +428,7 @@ echo Checking Internet Connection            [Connected%ping_f%]
 ) else (
 set error=1
 call :dk_color %Red% "Checking Internet Connection            [Not Connected]"
-call :dk_color %Blue% "Internet is required for HWID activation."
+call :dk_color %Blue% "Internet is required for AutoMate Matching Keys Bot."
 )
 
 ::========================================================================================================================================
@@ -477,7 +477,7 @@ if not defined key (
 %eline%
 echo [%winos% ^| %winbuild% ^| SKU:%osSKU%]
 if not defined skunotfound (
-echo This product does not support HWID activation.
+echo This product does not support AutoMate Matching Keys Bot.
 echo Make sure you are using the latest version of the script.
 echo If you are, then try TSforge activation option from the main menu.
 set fixes=%fixes% %mas%
@@ -499,7 +499,7 @@ if defined notworking set error=1
 
 echo:
 if defined changekey (
-call :dk_color %Blue% "[%altedition%] edition product key will be used to enable HWID activation."
+call :dk_color %Blue% "[%altedition%] edition product key will be used to enable AutoMate Matching Keys Bot."
 echo:
 )
 
@@ -677,7 +677,7 @@ reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v DisableWin
 reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v DoNotConnectToWindowsUpdateInternetLocations %nul2% | find /i "0x1" %nul% && set wublock=1
 if defined wublock (
 call :dk_color %Red% "Checking Update Blocker In Registry     [Found]"
-call :dk_color %Blue% "HWID activation needs working Windows updates, if you have used any tool to block updates, undo it."
+call :dk_color %Blue% "AutoMate Matching Keys Bot needs working Windows updates, if you have used any tool to block updates, undo it."
 )
 
 reg query "HKLM\SOFTWARE\Policies\Microsoft\WindowsStore" /v DisableStoreApps %nul2% | find /i "0x1" %nul% && (
@@ -703,7 +703,7 @@ call :dk_color %Red% "Windows seems to be infected with Mal%w%ware."
 set fixes=%fixes% %mas%remove_mal%w%ware
 call :dk_color2 %Blue% "Help - " %_Yellow% " %mas%remove_mal%w%ware"
 ) else (
-call :dk_color %Blue% "HWID activation needs working Windows updates, if you have used any tool to block updates, undo it."
+call :dk_color %Blue% "AutoMate Matching Keys Bot needs working Windows updates, if you have used any tool to block updates, undo it."
 )
 ) else (
 %psc% "Start-Job { Start-Service wuauserv } | Wait-Job -Timeout 20 | Out-Null"
@@ -712,7 +712,7 @@ set error=1
 set wuerror=1
 sc start wuauserv %nul%
 call :dk_color %Red% "Starting Windows Update Service         [Failed] [!errorlevel!]"
-call :dk_color %Blue% "HWID activation needs working Windows updates, if you have used any tool to block updates, undo it."
+call :dk_color %Blue% "AutoMate Matching Keys Bot needs working Windows updates, if you have used any tool to block updates, undo it."
 )
 )
 )
@@ -739,7 +739,7 @@ call :dk_color %Green% "%winos% is permanently activated with a digital license.
 ) else (
 call :dk_color %Red% "Activation Failed %error_code%"
 if defined notworking (
-call :dk_color %Blue% "At the time of writing, HWID Activation is not supported for this product."
+call :dk_color %Blue% "At the time of writing, AutoMate Matching Keys Bot is not supported for this product."
 call :dk_color %Blue% "Use TSforge activation option from the main menu instead."
 ) else (
 if not defined error call :dk_color %Blue% "%_fixmsg%"
@@ -1742,7 +1742,7 @@ exit /b
 
 ::========================================================================================================================================
 
-::  Below code is used to get alternate edition name and key if current edition doesn't support HWID activation
+::  Below code is used to get alternate edition name and key if current edition doesn't support AutoMate Matching Keys Bot
 
 ::  1st column = Current SKU ID
 ::  2nd column = Current Edition Name
