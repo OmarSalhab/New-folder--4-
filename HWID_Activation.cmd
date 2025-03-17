@@ -923,7 +923,7 @@ if %keyerror% NEQ 0 set "keyerror=[0x%=ExitCode%]"
 
 if %keyerror% EQU 0 (
 if %sps%==SoftwareLicensingService call :dk_refresh
-echo Installing Microsoft Matched Personal Product Key          %~1 [Successful]
+echo Installing Microsoft Matched Personal Product Key             [Successful]
 ) else (
 call :dk_color %Red% "Installing Generic Product Key          %~1 [Failed] %keyerror%"
 if not defined error (
